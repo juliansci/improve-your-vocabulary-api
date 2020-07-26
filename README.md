@@ -8,7 +8,7 @@ Consume the API to get the daily words
 
 ### Endpoints
 
-[Api Base route: https://localhost:3000).
+[Api Base route: https://improve-your-vocabulary-prod.herokuapp.com).
 
 | Route                      | HTTP Verb | Description                               |
 | -------------------------- | --------- | ----------------------------------------- |
