@@ -1,0 +1,32 @@
+{
+  "name": "improve-your-vocabulary-api",
+  "version": "1.0.0",
+  "description": "Improve your vocabulary API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliansci/improve-your-vocabulary-api.git"
+  },
+  "author": "Julian Scialabba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliansci/improve-your-vocabulary-api/issues"
+  },
+  "homepage": "https://github.com/juliansci/improve-your-vocabulary-api#readme",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "mongodb": "^3.5.9"
+  }
+}
