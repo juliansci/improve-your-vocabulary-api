@@ -1,6 +1,6 @@
 {
   "name": "improve-your-vocabulary-api",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Improve your vocabulary API",
   "main": "index.js",
   "scripts": {
