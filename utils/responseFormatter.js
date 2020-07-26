@@ -16,7 +16,7 @@ const formatWordResponse = wordData => {
         examples: result.examples
       }
     }),
-    pronunciation: wordData.pronunciation,
+    pronunciation: wordData.pronunciation.all,
     frequency: wordData.frequency
   };
 }
