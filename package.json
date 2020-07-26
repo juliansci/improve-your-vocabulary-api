@@ -1,10 +1,11 @@
 {
   "name": "improve-your-vocabulary-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Improve your vocabulary API",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
