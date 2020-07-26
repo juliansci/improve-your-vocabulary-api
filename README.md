@@ -10,9 +10,10 @@ Consume the API to get the daily words
 
 [Api Base route: https://localhost:3000).
 
-| Route          | HTTP Verb | Description     |
-| -------------- | --------- | --------------- |
-| [`/api/words`] | `GET`     | All daily words |
+| Route                      | HTTP Verb | Description                               |
+| -------------------------- | --------- | ----------------------------------------- |
+| [`/api/words`]             | `GET`     | All daily words                           |
+| [`/api/words/next-update`] | `GET`     | Get the seconds for the next words update |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -11,6 +11,12 @@ class DailyWordsService {
     this.wordsService = new WordsService();
   }
 
+  getNextUpdateInSeconds() {
+    const currentDate = moment();
+    const nextDate = moment().add(1, 'days').startOf('day');
+    return nextDate.diff(currentDate, 'seconds');
+  }
+
   async getDailyWords() {
     console.time('DailyWords-getDailyWords');
     const currentDate = moment();
