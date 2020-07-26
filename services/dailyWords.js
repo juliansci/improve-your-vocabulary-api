@@ -1,8 +1,10 @@
 const MongoDB = require('../lib/mongo');
 const moment = require('moment');
+const config = require('../config');
+
 const WordsService = require('./words');
 
-const DAILY_WORDS = 20;
+const DAILY_WORDS = config.dailyWords;
 
 class DailyWordsService {
   constructor() {

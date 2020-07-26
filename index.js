@@ -1,9 +1,14 @@
 const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
 const config = require('./config');
-const wordsApi = require('./routes/words');
 const app = express();
 
+const wordsApi = require('./routes/words');
+
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
 wordsApi(app);
 
