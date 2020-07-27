@@ -19,30 +19,33 @@ class DailyWordsService {
     return nextDate.diff(currentDate, 'seconds');
   }
 
-  async getDailyWords() {
+  async getDailyWords(date) {
     console.time('DailyWords-getDailyWords');
-    const currentDate = moment();
+    const currentDate = date || moment();
     const dailyWords = await this.getDailyWordsByDate(currentDate);
-    if (dailyWords) {
-      console.log(`DailyWords found - ${currentDate.format('DDMMYYYY')}`);
-      console.timeEnd('DailyWords-getDailyWords');
-      return dailyWords;
-    }
-    const words = [];
-    for (let i = 0; i < DAILY_WORDS; i++) {
-      const randomWord = await this.wordsService.getRandomWord();
-      words.push(randomWord);
-    }
-    await this.createDailyWords(words);
     console.timeEnd('DailyWords-getDailyWords');
-    return this.getDailyWordsByDate(currentDate);
+    return dailyWords;
   }
 
-  async createDailyWords(words) {
+  async generateDailyWords(date) {
+    const dailyWords = await this.getDailyWords(date);
+    if (!dailyWords) {
+      const words = [];
+      for (let i = 0; i < DAILY_WORDS; i++) {
+        const randomWord = await this.wordsService.getRandomWord();
+        words.push(randomWord);
+      }
+      await this.createDailyWords(words, date);
+      return this.getDailyWordsByDate(date);
+    }
+    return dailyWords;
+  }
+
+  async createDailyWords(words, date) {
     console.time('DailyWords-create');
-    const currentDateFormatted = moment().format('DDMMYYYY');
+    const currentDate = date || moment();
     const dailyWords = {
-      date: currentDateFormatted,
+      date: currentDate.format('DDMMYYYY'),
       words
     };
     await this.mongoDB.create(this.collection, dailyWords);
