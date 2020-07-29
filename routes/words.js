@@ -1,6 +1,5 @@
 const express = require('express');
 const DailyWordsService = require('../services/dailyWords');
-const moment = require('moment');
 const { formatDailyWordResponse } = require('../utils/responseFormatter');
 
 const wordsApi = app => {
