@@ -20,17 +20,6 @@ const wordsApi = app => {
     });
   });
 
-  router.get('/generate', async (req, res) => {
-    const dateStr = req.body.date;
-    console.log('dateStr: ', dateStr);
-    const date = moment(dateStr, 'DDMMYYYY');
-    console.log('date:', date);
-
-    const dailyWords = await dailyWordsService.generateDailyWords(date);
-    res.status(200).json({
-      dailyWords
-    });
-  });
 }
 
 module.exports = wordsApi;
