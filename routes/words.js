@@ -1,5 +1,6 @@
 const express = require('express');
 const DailyWordsService = require('../services/dailyWords');
+const moment = require('moment');
 const { formatDailyWordResponse } = require('../utils/responseFormatter');
 
 const wordsApi = app => {
@@ -16,6 +17,18 @@ const wordsApi = app => {
     const nextUpdate = await dailyWordsService.getNextUpdateInSeconds();
     res.status(200).json({
       nextUpdate
+    });
+  });
+
+  router.get('/generate', async (req, res) => {
+    const dateStr = req.body.date;
+    console.log('dateStr: ', dateStr);
+    const date = moment(dateStr, 'DDMMYYYY');
+    console.log('date:', date);
+
+    const dailyWords = await dailyWordsService.generateDailyWords(date);
+    res.status(200).json({
+      dailyWords
     });
   });
 }
